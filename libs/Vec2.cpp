@@ -2,6 +2,7 @@
 #include <cmath>
 #include <sstream>
 #include <iomanip>
+#include <stdexcept>
 
 Vec2::Vec2(float x, float y)
 {
@@ -73,4 +74,45 @@ float Vec2::getX() const noexcept
 float Vec2::getY() const noexcept
 {
 	return _values[1];
+}
+
+Vec2 Vec2::operator+(const Vec2& other) const noexcept
+{
+	return Vec2(_values[0] + other._values[0], _values[1] + other._values[1]);
+}
+
+Vec2 Vec2::operator-() const noexcept
+{
+	return Vec2(-_values[0], -_values[1]);
+}
+
+Vec2 Vec2::operator-(const Vec2& other) const noexcept
+{
+	return *this + (-other);
+}
+
+
+Vec2 operator*(float num, const Vec2& vector) noexcept
+{
+	return Vec2(vector._values[0] * num, vector._values[1] * num);
+}
+
+Vec2 operator*(const Vec2& vector, float num) noexcept
+{
+	return num * vector;
+}
+
+Vec2 Vec2::operator/(float num) const
+{
+	if (abs(num) == (float)1e-4)
+		throw std::runtime_error("Math error: Attempt to divide vector2 by zero\n");
+	return Vec2(_values[0] / num, _values[1] / num);
+}
+
+
+float Vec2::operator[](int index) const noexcept
+{
+	if (index < 0 || index >1)
+		throw std::runtime_error("Attempt to get unexist vector component with operator[](parenthesis)");
+	return _values[index];
 }

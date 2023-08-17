@@ -7,15 +7,15 @@ public:
 	Vec2(float x, float y);
 	Vec2() = default;
 	
-	Vec2& operator+(const Vec2&) const noexcept;
+	Vec2 operator+(const Vec2&) const noexcept;
 
-	friend Vec2& operator*(const float, const Vec2&) noexcept;
-	friend Vec2& operator*(const Vec2&, const float) noexcept;
+	friend Vec2 operator*(float, const Vec2&) noexcept;
+	friend Vec2 operator*(const Vec2&,float) noexcept;
 
-	Vec2& operator/(float) const noexcept;
+	Vec2 operator/(float) const;
 
-	Vec2& operator-() const noexcept;
-	Vec2& operator-(const Vec2&) const noexcept;
+	Vec2 operator-() const noexcept;
+	Vec2 operator-(const Vec2&) const noexcept;
 
 	float operator[](int i) const noexcept;
 
