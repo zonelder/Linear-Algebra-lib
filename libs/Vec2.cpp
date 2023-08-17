@@ -110,9 +110,30 @@ Vec2 Vec2::operator/(float num) const
 }
 
 
-float Vec2::operator[](int index) const noexcept
+float Vec2::operator[](int index) const
 {
 	if (index < 0 || index >1)
 		throw std::runtime_error("Attempt to get unexist vector component with operator[](parenthesis)");
 	return _values[index];
 }
+
+float Vec2::SqrMagnitude() const noexcept
+{
+	return  _values[0] * _values[0] + _values[1] * _values[1];
+}
+
+
+float Vec2::Magnitude() const noexcept
+{
+	return std::sqrt(SqrMagnitude());
+}
+
+
+Vec2 Vec2::Normalized() const noexcept
+{
+	float value = _values[0] * _values[0] + _values[1] * _values[1]; // this is faster then value = Magnitude();
+	value = std::sqrt(value);
+
+	return Vec2(_values[0] / value, _values[1] / value);// faster then (*this/value)
+}
+

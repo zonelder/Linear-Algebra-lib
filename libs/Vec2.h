@@ -17,7 +17,7 @@ public:
 	Vec2 operator-() const noexcept;
 	Vec2 operator-(const Vec2&) const noexcept;
 
-	float operator[](int i) const noexcept;
+	float operator[](int i) const;
 
 	bool operator==(const Vec2&) const noexcept;
 
@@ -25,7 +25,7 @@ public:
 	void Normalize() noexcept;
 
 	/// @brief return copy of vector with magnitude 1
-	Vec2& getDirection() const noexcept;
+	Vec2 Normalized() const noexcept;
 
 	/// @brief return Magnitude of the vector
 	float Magnitude() const noexcept;
@@ -42,9 +42,8 @@ public:
 	/// @brief Cross product of a two vectors
 	static float Cross(const Vec2&, const Vec2&) noexcept;
 
-	/// @brief 
-	/// @param  
-	static void Normalize(const Vec2&) noexcept;
+	/// @brief return normed vector with same direction
+	static Vec2 Normalized(const Vec2&) noexcept;
 
 	/// @brief returns a copy of vector with its magnitude clamped to maxLength.
 	static Vec2& ClampMagnitude(const Vec2& vector,float maxLen)  noexcept;

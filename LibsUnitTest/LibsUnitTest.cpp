@@ -60,5 +60,12 @@ namespace LibsUnitTest
 			Assert::AreEqual(a[1], 2.0f, MSG("parenthesis return incorrent value at index 1"));
 		}
 
+		TEST_METHOD(MagnitudeCalc)
+		{
+			Vec2 a(4, 3);
+			Assert::AreEqual(a.SqrMagnitude(), 25.0f, MSG("sqr magnitude calc incorrect"));
+			Assert::AreEqual(a.Magnitude(), 5.0f, MSG("magnitude calc incorrect"));
+		}
+
 	};
 }
