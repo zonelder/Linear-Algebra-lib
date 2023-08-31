@@ -39,26 +39,24 @@ public:
 
 	/// @brief Dot product of a two vectors 
 	static float Dot(const Vec2&, const Vec2&) noexcept;
-	/// @brief Cross product of a two vectors
-	static float Cross(const Vec2&, const Vec2&) noexcept;
 
 	/// @brief return normed vector with same direction
 	static Vec2 Normalized(const Vec2&) noexcept;
 
 	/// @brief returns a copy of vector with its magnitude clamped to maxLength.
-	static Vec2& ClampMagnitude(const Vec2& vector,float maxLen)  noexcept;
+	static Vec2 ClampMagnitude(const Vec2& vector,float maxLen)  noexcept;
 
 	/// @brief Returns the distance between vectors  a and b.
 	static float Distance(const Vec2& a, const Vec2& b) noexcept;
 
 	/// @brief Linearly interpolates between vectors a and b by t. t will be clamped in range  [0,1]
-	static Vec2& Lerp(const Vec2& a, const Vec2& b, float t) noexcept;
+	static Vec2 Lerp(const Vec2& a, const Vec2& b, float t) noexcept;
 
 	/// @brief Linearly interpolates between vectors a and b by t.
-	static Vec2& LerpUnclamped(const Vec2& a, const Vec2& b, float t) noexcept;
+	static Vec2 LerpUnclamped(const Vec2& a, const Vec2& b, float t) noexcept;
 
 	/// @brief Multiplies two vectors component-wise.
-	static Vec2& Scale(const Vec2& vector, const Vec2& scale) noexcept;
+	static Vec2 Scale(const Vec2& vector, const Vec2& scale) noexcept;
 
 
 	/// @brief Shorthand for writing Vec2(0, 1). 

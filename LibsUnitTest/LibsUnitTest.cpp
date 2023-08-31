@@ -65,7 +65,27 @@ namespace LibsUnitTest
 			Vec2 a(4, 3);
 			Assert::AreEqual(a.SqrMagnitude(), 25.0f, MSG("sqr magnitude calc incorrect"));
 			Assert::AreEqual(a.Magnitude(), 5.0f, MSG("magnitude calc incorrect"));
+			Assert::AreEqual(Vec2::Distance(a, Vec2(0, 0)), 5.0f, MSG("distance calc incorrect"));
 		}
+
+		TEST_METHOD(Lerps)
+		{
+			Vec2 a(0, 0);
+			Vec2 b(20, 12);
+			Assert::IsTrue(Vec2::Lerp(a,b,1.5f) == b, MSG("clamp above incorect in lerp method"));
+			Assert::IsTrue(Vec2::Lerp(a, b, -1.5f) == a, MSG("clamp below incorect in lerp method"));
+			Assert::IsTrue(Vec2::Lerp(a, b, 0.25f) == Vec2(5,3), MSG("incorect uotput in lerp method"));
+
+			Assert::IsTrue(Vec2::LerpUnclamped(a, b, 1.5f) == Vec2(30,18), MSG("unclamp above output incorect in lerp method"));
+		}
+
+		TEST_METHOD(Scales)
+		{
+			Vec2 a(2, 5);
+			Vec2 b(6, 2);
+			Assert::IsTrue(Vec2::Scale(a,b) == Vec2(12,10), MSG("Scale calc incorrect"));
+		}
+
 
 	};
 }

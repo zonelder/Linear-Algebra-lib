@@ -3,6 +3,15 @@
 #include <sstream>
 #include <iomanip>
 #include <stdexcept>
+#include <iostream>
+
+
+
+template<class T>
+constexpr const T& clamp(const T& v, const T& lo, const T& hi)
+{
+    return (v < lo) ? lo : (hi< v) ? hi : v;
+}
 
 Vec2::Vec2(float x, float y)
 {
@@ -137,3 +146,56 @@ Vec2 Vec2::Normalized() const noexcept
 	return Vec2(_values[0] / value, _values[1] / value);// faster then (*this/value)
 }
 
+void Vec2::Normalize() noexcept
+{
+	float len = Magnitude();
+	for (int i = 0; i < 2; ++i)
+	{
+		_values[i] /= len;
+	}
+
+}
+
+inline float Vec2::Dot(const Vec2& a, const Vec2& b) noexcept
+{
+	//its faster then using for. much faster
+	return a._values[0] * b._values[0] + a._values[1] * b._values[1];
+}
+
+
+inline Vec2 Vec2::Normalized(const Vec2& a) noexcept
+{
+	return a.Normalized();
+}
+
+inline Vec2 Vec2::ClampMagnitude(const Vec2& vec, float maxLenght) noexcept
+{
+	float len = vec.Magnitude();
+	bool isBig = len > maxLenght;
+	return  (isBig*(maxLenght / len) + !isBig) * vec;
+}
+
+inline float Vec2::Distance(const Vec2& a, const Vec2& b) noexcept
+{
+	return (a - b).Magnitude();
+}
+
+
+inline Vec2 Vec2::LerpUnclamped(const Vec2& a, const Vec2& b, float t) noexcept
+{
+	return  (b - a)*t + a;
+}
+
+inline Vec2 Vec2::Lerp(const Vec2& a, const Vec2& b,float t) noexcept
+{
+	t = clamp(t,0.0f , 1.0f);
+	std::cout << t;
+
+	return LerpUnclamped(a, b, t);
+}
+
+inline Vec2 Vec2::Scale(const Vec2& a, const Vec2& b) noexcept
+{
+	Vec2 v(a._values[0] * b._values[0], a._values[1] * b._values[1]);
+	return v;
+}
