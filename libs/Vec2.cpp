@@ -189,7 +189,6 @@ inline Vec2 Vec2::LerpUnclamped(const Vec2& a, const Vec2& b, float t) noexcept
 inline Vec2 Vec2::Lerp(const Vec2& a, const Vec2& b,float t) noexcept
 {
 	t = clamp(t,0.0f , 1.0f);
-	std::cout << t;
 
 	return LerpUnclamped(a, b, t);
 }
