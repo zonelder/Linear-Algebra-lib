@@ -36,6 +36,9 @@ public:
 	float getX() const noexcept;
 	float getY() const noexcept;
 
+	/// @brief Multiplies two vectors component-wise.
+	void Scale(const Vec2&) noexcept;
+
 
 	/// @brief Dot product of a two vectors 
 	static float Dot(const Vec2&, const Vec2&) noexcept;

@@ -198,3 +198,12 @@ inline Vec2 Vec2::Scale(const Vec2& a, const Vec2& b) noexcept
 	Vec2 v(a._values[0] * b._values[0], a._values[1] * b._values[1]);
 	return v;
 }
+
+
+inline void Vec2::Scale(const Vec2& other) noexcept
+{
+	for (int i = 0; i < 2; ++i)
+	{
+		_values[i] *= other._values[i];
+	}
+}
