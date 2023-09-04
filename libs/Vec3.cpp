@@ -78,17 +78,17 @@ bool  Vec3::operator==(const Vec3& other) const noexcept
 }
 
 
-float Vec3::getX() const noexcept
+float Vec3::GetX() const noexcept
 {
 	return _values[0];
 }
 
-float Vec3::getY() const noexcept
+float Vec3::GetY() const noexcept
 {
 	return _values[1];
 }
 
-float Vec3::getZ() const noexcept
+float Vec3::GetZ() const noexcept
 {
 	return _values[2];
 }
@@ -124,6 +124,11 @@ Vec3 Vec3::operator/(float num) const
 	if (abs(num) == (float)1e-4)
 		throw std::runtime_error("Math error: Attempt to divide vector2 by zero\n");
 	return Vec3(_values[0] / num, _values[1] / num, _values[2]/num);
+}
+
+void Vec3::operator/=(float num)
+{
+	*this =  (*this) / num;
 }
 
 

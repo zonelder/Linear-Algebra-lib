@@ -10,14 +10,16 @@ public:
 	Quaternion(float, float, float, float);
 
 	Quaternion(float, const Vec3&);
+
+
 	
-	Quaternion operator+(const Vec3&) const noexcept;
-	Quaternion operator+(const Quaternion&) const noexcept;
+	Vec3 operator*(const Vec3&) const noexcept;
+	Quaternion operator*(const Quaternion&) const noexcept;
 
 	bool operator==(const Quaternion&) const noexcept;
 
 
-	float operator[](int) const noexcept;
+	float operator[](int) const;
 
 	/// @brief set to the given eulerAngles quaternion 
 	void SetEulerAngles(const Vec3&) noexcept;
@@ -37,6 +39,12 @@ public:
 
 	/// @brief get Z conmonent of the Quaternion
 	float GetZ() const noexcept;
+
+	Vec3 GetAxises() const noexcept;
+
+	Quaternion Inverse() const noexcept;
+
+	void Normalize() noexcept;
 
 	/// @brief set Quaternion as a rotation fromDirection to  toDirection 
 	/// @param fromDirection - Initial direction  of the rotation.(non zero)
@@ -87,6 +95,8 @@ public:
 
 	/// @brief Returns the Inverse of the given rotation
 	static Quaternion Inverse(const Quaternion&) noexcept;
+
+	static Quaternion Identity() noexcept;
 
 	/// @brief Interpolates between a and b by t and normalizes the result afterwards.The parameter t is clamped to the range[0, 1].
 	static Quaternion Lerp(const Quaternion& a, const Quaternion& b, float t);

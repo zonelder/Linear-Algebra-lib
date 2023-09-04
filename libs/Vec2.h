@@ -33,8 +33,8 @@ public:
 	/// @brief return sqr. Magnitude of the vector
 	float SqrMagnitude() const noexcept;
 
-	float getX() const noexcept;
-	float getY() const noexcept;
+	float GetX() const noexcept;
+	float GetY() const noexcept;
 
 	/// @brief Multiplies two vectors component-wise.
 	void Scale(const Vec2&) noexcept;

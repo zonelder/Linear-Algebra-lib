@@ -13,7 +13,10 @@ public:
 	friend Vec3 operator*(float, const Vec3&) noexcept;
 	friend Vec3 operator*(const Vec3&, float) noexcept;
 
+
+
 	Vec3 operator/(float) const;
+	void operator/=(float);
 
 	Vec3 operator-() const noexcept;
 	Vec3 operator-(const Vec3&) const noexcept;
@@ -34,9 +37,9 @@ public:
 	/// @brief return sqr. Magnitude of the vector
 	float SqrMagnitude() const noexcept;
 
-	float getX() const noexcept;
-	float getY() const noexcept;
-	float getZ() const noexcept;
+	float GetX() const noexcept;
+	float GetY() const noexcept;
+	float GetZ() const noexcept;
 
 
 	/// @brief Dot product of a two vectors 

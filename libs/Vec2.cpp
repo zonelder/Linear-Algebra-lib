@@ -75,12 +75,12 @@ bool  Vec2::operator==(const Vec2& other) const noexcept
 }
 
 
-float Vec2::getX() const noexcept
+float Vec2::GetX() const noexcept
 {
 	return _values[0];
 }
 
-float Vec2::getY() const noexcept
+float Vec2::GetY() const noexcept
 {
 	return _values[1];
 }
