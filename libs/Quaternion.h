@@ -11,14 +11,10 @@ public:
 
 	Quaternion(float, const Vec3&);
 
-
-	
 	Vec3 operator*(const Vec3&) const noexcept;
 	Quaternion operator*(const Quaternion&) const noexcept;
 
-
 	bool operator==(const Quaternion&) const noexcept;
-
 
 	float operator[](int) const;
 
@@ -41,8 +37,10 @@ public:
 	/// @brief get Z conmonent of the Quaternion
 	float GetZ() const noexcept;
 
+	/// @brief get X,Y,Z  conmonent of the Quaternion as one vector3
 	Vec3 GetAxises() const noexcept;
 
+	/// @brief create Inverse quaternion (s.a  q*q.Inverse() = Identity())
 	Quaternion Inverse() const noexcept;
 
 	void Normalize() noexcept;
@@ -60,7 +58,7 @@ public:
 	/// @param forward - The direction to look in.(non zero)
 	/// @param up - The vector that defines in which direction up is.(non zero)
 	/// @return identity Quaternion if forward if zero
-	void SetLookRotation(const Vec3& forward, const Vec3& up = Vec3::Up()) noexcept;
+	void SetLookRotation(const Vec3& forward, const Vec3& up = Vec3::Up) noexcept;
 
 	std::string ToString() const noexcept;
 
@@ -73,7 +71,7 @@ public:
 	/// @param forward - The direction to look in.(non zero)
 	/// @param up - The vector that defines in which direction up is.(non zero)
 	/// @return identity Quaternion if forward if zero
-	static Quaternion LookRotation(const Vec3& forward, const Vec3& up = Vec3::Up()) noexcept;
+	static Quaternion LookRotation(const Vec3& forward, const Vec3& up = Vec3::Up) noexcept;
 
 	/// @brief return the angle in degrees benween two rotations
 	static float Angle(const Quaternion& a, const Quaternion& b) noexcept;
@@ -109,9 +107,6 @@ public:
 
 	/// @brief Spherically interpolates between a and b by t and normalizes the result afterwards.The parameter t is not clamped.
 	static Quaternion SLerpUnclamped(const Quaternion& a, const Quaternion& b, float t) noexcept;
-
-	
-
 
 private:
 

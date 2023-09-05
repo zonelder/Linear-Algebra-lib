@@ -259,5 +259,5 @@ inline Quaternion Quaternion::AngleAxis(float angle, const Vec3& axis) noexcept
 inline Quaternion Quaternion::LookRotation(const Vec3& forward, const Vec3& up) noexcept
 {
 	///unimplemented
-	return Quaternion::FromToRotation(forward, Vec3::Forward());
+	return Quaternion::FromToRotation(forward, Vec3::Forward);
 }

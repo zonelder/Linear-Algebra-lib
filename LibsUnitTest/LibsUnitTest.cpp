@@ -13,18 +13,18 @@ namespace LibsUnitTest
 		
 		TEST_METHOD(createShortCuts)
 		{
-			Assert::AreEqual(Vec2::Up().ToString(), Vec2(0.0, 1.0f).ToString(), MSG("up shortcut is not equal to (0,1)"));
-			Assert::AreEqual(Vec2::Down().ToString(), Vec2(0.0, -1.0f).ToString(), MSG("up shortcut is not equal to (0,-1)"));
-			Assert::AreEqual(Vec2::Left().ToString(), Vec2(-1.0, 0.0f).ToString(), MSG("up shortcut is not equal to (-1,0)"));
-			Assert::AreEqual(Vec2::Right().ToString(), Vec2(1.0, 0.0f).ToString(), MSG("up shortcut is not equal to (1,0)"));
-			Assert::AreEqual(Vec2::Zero().ToString(), Vec2(0.0, 0.0f).ToString(), MSG("up shortcut is not equal to (0,0)"));
+			Assert::AreEqual(Vec2::Up.ToString(), Vec2(0.0, 1.0f).ToString(), MSG("up shortcut is not equal to (0,1)"));
+			Assert::AreEqual(Vec2::Down.ToString(), Vec2(0.0, -1.0f).ToString(), MSG("up shortcut is not equal to (0,-1)"));
+			Assert::AreEqual(Vec2::Left.ToString(), Vec2(-1.0, 0.0f).ToString(), MSG("up shortcut is not equal to (-1,0)"));
+			Assert::AreEqual(Vec2::Right.ToString(), Vec2(1.0, 0.0f).ToString(), MSG("up shortcut is not equal to (1,0)"));
+			Assert::AreEqual(Vec2::Zero.ToString(), Vec2(0.0, 0.0f).ToString(), MSG("up shortcut is not equal to (0,0)"));
 
-			Assert::AreEqual(Vec2::One().ToString(), Vec2(1.0, 1.0f).ToString(), MSG("up shortcut is not equal to (1,1)"));
+			Assert::AreEqual(Vec2::One.ToString(), Vec2(1.0, 1.0f).ToString(), MSG("up shortcut is not equal to (1,1)"));
 		}
 
 		TEST_METHOD(VectorEqual)
 		{
-			Vec2 a = Vec2::One();
+			Vec2 a = Vec2::One;
 
 			Vec2 b(2.0f + 0.4f - 1.4f, 2 * 2 - 3);
 			Vec2 c(15.0f, 22.0f);
@@ -39,9 +39,9 @@ namespace LibsUnitTest
 
 		TEST_METHOD(VectorAlgebra)
 		{
-			Vec2 a = Vec2::One();
-			Vec2 b = Vec2::Down();
-			Assert::IsTrue((a + b) == Vec2::Right(), MSG("(1,1)+(0,-1) != (1,0). operator's + work is not corrent"));
+			Vec2 a = Vec2::One;
+			Vec2 b = Vec2::Down;
+			Assert::IsTrue((a + b) == Vec2::Right, MSG("(1,1)+(0,-1) != (1,0). operator's + work is not corrent"));
 			Assert::IsTrue((-a) == Vec2(-1, -1), MSG(" -(1,1) != (-1,-1).work of  unar minus operator is incorrent"));
 
 			Assert::IsTrue((b - a) == Vec2(-1, -2), MSG("(0,-1) - (1,1) != (-1,-2).work of  minus operator is incorrent"));

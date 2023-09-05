@@ -26,41 +26,17 @@ std::string Vec2::ToString() const noexcept
 	return ss.str();
 }
 
-Vec2 Vec2::Up() noexcept
-{
-	Vec2 a(0, 1);
-	return	a;
-}
+const Vec2 Vec2::Up(0, 1);
 
-Vec2 Vec2::Down() noexcept
-{
-	Vec2 a(0, -1);
-	return	a;
-}
+const Vec2 Vec2::Down(0, -1);
 
-Vec2 Vec2::Right() noexcept
-{
-	Vec2 a(1, 0);
-	return	a;
-}
+const Vec2 Vec2::Right(1, 0);
 
-Vec2 Vec2::Left() noexcept
-{
-	Vec2 a(-1, 0);
-	return	a;
-}
+const Vec2 Vec2::Left(-1, 0);
 
-Vec2 Vec2::One() noexcept
-{
-	Vec2 a(1, 1);
-	return	a;
-}
+const Vec2 Vec2::One(1, 1);
 
-Vec2 Vec2::Zero() noexcept
-{
-	Vec2 a(0, 0);
-	return	a;
-}
+const Vec2 Vec2::Zero(0, 0);
 
 bool  Vec2::operator==(const Vec2& other) const noexcept
 {

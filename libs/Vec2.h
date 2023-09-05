@@ -63,17 +63,17 @@ public:
 
 
 	/// @brief Shorthand for writing Vec2(0, 1). 
-	static Vec2 Up() noexcept;
+	static const Vec2 Up;
 	/// @brief Shorthand for writing Vec2(0, -1). 
-	static Vec2 Down() noexcept;
+	static const Vec2 Down;
 	/// @brief Shorthand for writing Vec2(1, 0). 
-	static Vec2 Right() noexcept;
+	static const Vec2 Right;
 	/// @brief Shorthand for writing Vec2(-1, 0). 
-	static Vec2 Left() noexcept;
+	static const Vec2 Left;
 	/// @brief Shorthand for writing Vec2(1, 1). 
-	static Vec2 One() noexcept;
+	static const Vec2 One;
 	/// @brief Shorthand for writing Vec2(0, 0). 
-	static Vec2 Zero() noexcept;
+	static const Vec2 Zero;
 
 	std::string ToString() const noexcept;
 

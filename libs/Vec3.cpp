@@ -29,41 +29,21 @@ std::string Vec3::ToString() const noexcept
 	return ss.str();
 }
 
-Vec3 Vec3::Up() noexcept
-{
-	Vec3 a(0, 1, 0);
-	return	a;
-}
+const Vec3 Vec3::Up(0, 1, 0);
 
-Vec3 Vec3::Down() noexcept
-{
-	Vec3 a(0, -1, 0);
-	return	a;
-}
+const Vec3 Vec3::Down(0, -1, 0);
 
-Vec3 Vec3::Right() noexcept
-{
-	Vec3 a(1, 0, 0);
-	return	a;
-}
+const Vec3 Vec3::Right(1, 0, 0);
 
-Vec3 Vec3::Left() noexcept
-{
-	Vec3 a(-1, 0, 0);
-	return	a;
-}
+const Vec3 Vec3::Left(-1, 0, 0);
 
-Vec3 Vec3::One() noexcept
-{
-	Vec3 a(1, 1, 0);
-	return	a;
-}
+const Vec3 Vec3::One(1, 1, 1);
 
-Vec3 Vec3::Zero() noexcept
-{
-	Vec3 a(0, 0, 0);
-	return	a;
-}
+const Vec3 Vec3::Zero(0, 0, 0);
+
+const Vec3 Vec3::Forward(0, 0, 1);
+
+const Vec3 Vec3::Back(0, 0, -1);
 
 bool  Vec3::operator==(const Vec3& other) const noexcept
 {
