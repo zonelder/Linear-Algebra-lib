@@ -16,6 +16,7 @@ public:
 	Vec3 operator*(const Vec3&) const noexcept;
 	Quaternion operator*(const Quaternion&) const noexcept;
 
+
 	bool operator==(const Quaternion&) const noexcept;
 
 
@@ -46,6 +47,10 @@ public:
 
 	void Normalize() noexcept;
 
+	float SqrMagnitude() const noexcept;
+
+	float Magnitude() const noexcept;
+
 	/// @brief set Quaternion as a rotation fromDirection to  toDirection 
 	/// @param fromDirection - Initial direction  of the rotation.(non zero)
 	/// @param toDirection - End direction of the rotation.(non zero)
@@ -58,12 +63,6 @@ public:
 	void SetLookRotation(const Vec3& forward, const Vec3& up = Vec3::Up()) noexcept;
 
 	std::string ToString() const noexcept;
-	
-	/// @brief create a quaternion with the given eulerAngles 
-	static Quaternion EulerAngles(float alfa, float delta, float tetha) noexcept;
-
-	/// @brief create a quaternion with the given eulerAngles represent by a vector
-	static Quaternion EulerAngles(const Vec3&) noexcept;
 
 	/// @brief create a rotation fromDirection to  toDirection 
 	/// @param fromDirection - Initial direction  of the rotation.(non zero)
@@ -99,19 +98,26 @@ public:
 	static Quaternion Identity() noexcept;
 
 	/// @brief Interpolates between a and b by t and normalizes the result afterwards.The parameter t is clamped to the range[0, 1].
-	static Quaternion Lerp(const Quaternion& a, const Quaternion& b, float t);
+	static Quaternion Lerp(const Quaternion& a, const Quaternion& b, float t) noexcept;
 
 	/// @brief Interpolates between a and b by t and normalizes the result afterwards.The parameter t is not clamped.
-	static Quaternion LerpUnclamped(const Quaternion& a, const Quaternion& b, float t);
+	/// @param a - quaternion with 
+	static Quaternion LerpUnclamped(const Quaternion& a, const Quaternion& b, float t) noexcept;
 
 	/// @brief Spherically interpolates between a and b by t and normalizes the result afterwards.The parameter t is clamped to the range[0, 1].
-	static Quaternion SLerp(const Quaternion& a, const Quaternion& b, float t);
+	static Quaternion SLerp(const Quaternion& a, const Quaternion& b, float t) noexcept;
 
 	/// @brief Spherically interpolates between a and b by t and normalizes the result afterwards.The parameter t is not clamped.
-	static Quaternion SLerpUnclamped(const Quaternion& a, const Quaternion& b, float t);
+	static Quaternion SLerpUnclamped(const Quaternion& a, const Quaternion& b, float t) noexcept;
+
+	
 
 
 private:
+
+	Quaternion operator*(float) const noexcept;
+	Quaternion operator+(const Quaternion&) const noexcept;
+	Quaternion operator-(const Quaternion&) const noexcept;
 
 	float _w;
 	Vec3 _axis;

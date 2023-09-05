@@ -139,6 +139,7 @@ float Vec3::operator[](int index) const
 	return _values[index];
 }
 
+
 float Vec3::SqrMagnitude() const noexcept
 {
 	return  _values[0] * _values[0] + _values[1] * _values[1] + _values[2]*_values[2] ;
@@ -169,10 +170,10 @@ void Vec3::Normalize() noexcept
 
 }
 
-inline float Vec3::Dot(const Vec3& a, const Vec3& b) noexcept
+float Vec3::Dot(const Vec3& a, const Vec3& b) noexcept
 {
 	//its faster then using for. much faster
-	return a._values[0] * b._values[0] + a._values[1] * b._values[1];
+	return a._values[0] * b._values[0] + a._values[1] * b._values[1] + a._values[2] * b._values[2];
 }
 
 
@@ -209,4 +210,22 @@ inline Vec3 Vec3::Scale(const Vec3& a, const Vec3& b) noexcept
 {
 	Vec3 v(a._values[0] * b._values[0], a._values[1] * b._values[1], a._values[2] * b._values[2]);
 	return v;
+}
+
+inline Vec3 Vec3::Cross(const Vec3& a, const Vec3& b) noexcept
+{
+	float ax = a.GetX();
+	float ay = a.GetY();
+	float az = a.GetZ();
+
+	float bx = b.GetX();
+	float by = b.GetY();
+	float bz = b.GetZ();
+	Vec3 res(
+		ay * bz - by * az,
+		ax * bz - bx * az,
+		ax * by - bx * ay
+	);
+
+	return res;
 }
