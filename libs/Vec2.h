@@ -62,17 +62,17 @@ public:
 	static Vec2 Scale(const Vec2& vector, const Vec2& scale) noexcept;
 
 
-	/// @brief Shorthand for writing Vec2(0, 1). 
+	/// @brief shortcut for writing Vec2(0, 1). 
 	static const Vec2 Up;
-	/// @brief Shorthand for writing Vec2(0, -1). 
+	/// @brief shortcut for writing Vec2(0, -1). 
 	static const Vec2 Down;
-	/// @brief Shorthand for writing Vec2(1, 0). 
+	/// @brief shortcut for writing Vec2(1, 0). 
 	static const Vec2 Right;
-	/// @brief Shorthand for writing Vec2(-1, 0). 
+	/// @brief shortcut for writing Vec2(-1, 0). 
 	static const Vec2 Left;
-	/// @brief Shorthand for writing Vec2(1, 1). 
+	/// @brief shortcut for writing Vec2(1, 1). 
 	static const Vec2 One;
-	/// @brief Shorthand for writing Vec2(0, 0). 
+	/// @brief shortcut for writing Vec2(0, 0). 
 	static const Vec2 Zero;
 
 	std::string ToString() const noexcept;

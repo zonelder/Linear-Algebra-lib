@@ -65,21 +65,21 @@ public:
 	static Vec3 Scale(const Vec3& vector, const Vec3& scale) noexcept;
 
 
-	/// @brief Shorthand for writing Vec3(0, 1, 0). 
+	/// @brief shortcut for writing Vec3(0, 1, 0). 
 	static const Vec3 Up;
-	/// @brief Shorthand for writing Vec3(0, -1, 0). 
+	/// @brief shortcut for writing Vec3(0, -1, 0). 
 	static const  Vec3 Down;
-	/// @brief Shorthand for writing Vec3(1, 0, 0). 
+	/// @brief shortcut for writing Vec3(1, 0, 0). 
 	static const Vec3 Right;
-	/// @brief Shorthand for writing Vec3(-1, 0, 0). 
+	/// @brief shortcut for writing Vec3(-1, 0, 0). 
 	static const Vec3 Left;
-	/// @brief Shorthand for writing Vec3(1, 1, 1). 
+	/// @brief shortcut for writing Vec3(1, 1, 1). 
 	static const Vec3 One;
-	/// @brief Shorthand for writing Vec3(0, 0, 0). 
+	/// @brief shortcut for writing Vec3(0, 0, 0). 
 	static const Vec3 Zero;
-	/// @brief Shorthand for writing Vec3(0, 0, 1). 
+	/// @brief shortcut for writing Vec3(0, 0, 1). 
 	static const Vec3 Forward;
-	/// @brief Shorthand for writing Vec3(0, 0, -1). 
+	/// @brief shortcut for writing Vec3(0, 0, -1). 
 	static const Vec3 Back;
 
 	std::string ToString() const noexcept;
